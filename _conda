@@ -282,6 +282,8 @@ __conda_commands(){
         clean:'Remove unused packages and caches.'
     )
     environment=(
+        activate:'Activate an environment.'
+        deactivate:'Deactivate the current environment.'
         info:'Display information about current conda install.'
         create:'Create a new conda environment from a list of specified packages.'
         list:'List linked packages in a conda environment.'
@@ -387,6 +389,9 @@ case $state in
     ;;
 (subcmd)
     case ${line[1]} in
+    (activate)
+        __conda_envs
+        ;;
     (info)
         _arguments -C $help_opts \
                       '--json[report all output as json.]' \
